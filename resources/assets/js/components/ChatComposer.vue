@@ -1,15 +1,23 @@
 <template lang="html">
 	<div class="chat-composer">
-        <input type="text" required="" placeholder="Start typing your message..."class="chat-in">
-        <button class="btn btn-primary">Send </button>
+        <input type="text" placeholder="Start typing your message..."class="chat-in" v-model="messageText" @keyup.enter="sendMessage">
+        <button class="btn btn-primary"@click="sendMessage">Send </button>
     </div>    
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+    	data(){
+    		return{
+    			messageText: ''
+    		}
+    	},
+    	methods: {
+    		sendMessage(){
+            	console.log(this.messageText);
+            	this.messageText='';
+    		}
+    	}
     }
 </script>
 
