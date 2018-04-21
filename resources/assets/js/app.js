@@ -40,8 +40,12 @@ const app = new Vue({
     },
     methods:{
     	//add to the chat log and update the Database
-    	addMessage(){
+    	addMessage(message){
+    		//add to the chat log
+    		this.messages.push(message);
     		console.log('message Added') 
+    		//persist to the DB
+
     	}
 
     }
