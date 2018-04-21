@@ -39,6 +39,7 @@ const app = new Vue({
 		]
     },
     methods:{
+    	//add to the chat log and update the Database
     	addMessage(){
     		console.log('message Added') 
     	}

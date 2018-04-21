@@ -11,7 +11,7 @@
 		<div id="app" class="container">
 			{{-- <chat-nav></chat-nav> --}}
 			<chat-log v-bind:messages="messages"></chat-log>
-			<chat-composer v-on:messageSent="addMessage"></chat-composer>
+			<chat-composer v-on:message-sent="addMessage"></chat-composer>
 		</div>		
 		<script src="js/app.js" charset="UTF-8"></script>
 	</body>

@@ -14330,6 +14330,7 @@ var app = new Vue({
         }]
     },
     methods: {
+        //add to the chat log and update the Database
         addMessage: function addMessage() {
             console.log('message Added');
         }
@@ -48088,9 +48089,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	methods: {
 		sendMessage: function sendMessage() {
 			console.log(this.messageText);
-			this.$emit('messageSent', {
+			this.$emit('message-sent', {
 				message: this.messageText,
-				user: Anon
+				user: 'Anon'
 			});
 			this.messageText = '';
 		}
