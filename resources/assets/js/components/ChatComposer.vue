@@ -15,6 +15,10 @@
     	methods: {
     		sendMessage(){
             	console.log(this.messageText);
+            	this.$emit('messageSent', {
+            		message: this.messageText,
+            		user:Anon
+            	});
             	this.messageText='';
     		}
     	}
