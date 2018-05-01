@@ -15,10 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/chat', function () {
-    return view('chat');
-})->middleware('auth');
+Route::get('/error', function () {
+    return view('error');
+})
+	->name('error');
+
+Route::get('/chatapp', function () {
+    return view('chatapp');
+})
+	->middleware('auth') 
+	->name('chatapp');
+
+Route::get('/messages', function () {
+    return App\Message::all();
+})
+	->middleware('auth') 
+	->name('chatapp');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+	->name('home');

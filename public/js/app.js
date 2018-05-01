@@ -14337,6 +14337,12 @@ var app = new Vue({
             console.log('message Added');
             //persist to the DB
         }
+    },
+
+    created: function created() {
+        axios.get('/messages').then(function (response) {
+            console.log(response);
+        });
     }
 });
 
