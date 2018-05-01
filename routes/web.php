@@ -27,11 +27,17 @@ Route::get('/chatapp', function () {
 	->name('chatapp');
 
 Route::get('/messages', function () {
-    return App\Message::all();
+    return App\Message::with('user')->get();
 })
 	->middleware('auth') 
 	->name('chatapp');
 
+	//route to return the username logged in
+Route::get('/currentuser', function () {
+	$user = auth::user();
+    return $user['name'];
+});
+	
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')

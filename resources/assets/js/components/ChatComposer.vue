@@ -17,7 +17,10 @@
             	console.log(this.messageText);
             	this.$emit('message-sent', {
             		message: this.messageText,
-            		user: 'Anon'
+            		user: {
+                        //taking it straight from DOM
+                        name:$('#navbarDropdown').text()
+                    }
             	});
             	this.messageText='';
     		}

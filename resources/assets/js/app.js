@@ -23,20 +23,8 @@ Vue.component('chat-composer', require('./components/ChatComposer.vue'))
 const app = new Vue({
     el: '#app',
     data:{
-    	messages: [
-    		{
-    			message: "hey!",
-    			user: "John Doe"
-    		},
-    		{
-    			message: "hello every1!",
-    			user: "Jane Doe"
-    		},
-    		{
-    			message: "hi :)",
-    			user: "Jane Doe"
-    		}
-		]
+    	messages: [ ],
+        // username: [ ]
     },
     methods:{
     	//add to the chat log and update the Database
@@ -51,7 +39,13 @@ const app = new Vue({
     },
 
     created (){
-        axios.get('/messages').then( response => {console.log(response)} )
+        axios.get('/messages').then( response => {
+            console.log(response),
+            this.messages = response.data } )
+        // a function to get the correct username
+        // axios.get('/currentuser').then (user => { 
+        //     console.log(user),
+        //     this.username = user},      
     }
 
 });

@@ -14318,16 +14318,8 @@ Vue.component('chat-composer', __webpack_require__(56));
 var app = new Vue({
     el: '#app',
     data: {
-        messages: [{
-            message: "hey!",
-            user: "John Doe"
-        }, {
-            message: "hello every1!",
-            user: "Jane Doe"
-        }, {
-            message: "hi :)",
-            user: "Jane Doe"
-        }]
+        messages: []
+        // username: [ ]
     },
     methods: {
         //add to the chat log and update the Database
@@ -14340,9 +14332,15 @@ var app = new Vue({
     },
 
     created: function created() {
+        var _this = this;
+
         axios.get('/messages').then(function (response) {
-            console.log(response);
+            console.log(response), _this.messages = response.data;
         });
+        // a function to get the correct username
+        // axios.get('/currentuser').then (user => { 
+        //     console.log(user),
+        //     this.username = user},      
     }
 });
 
@@ -47833,7 +47831,7 @@ var render = function() {
   return _c("div", { staticClass: "chat-message" }, [
     _c("p", [_vm._v(_vm._s(_vm.message.message))]),
     _vm._v(" "),
-    _c("small", [_vm._v(_vm._s(_vm.message.user))])
+    _c("small", [_vm._v(_vm._s(_vm.message.user.name))])
   ])
 }
 var staticRenderFns = []
@@ -47932,7 +47930,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.chat-log .chat-message:nth-child(even){\n\tbackground-color: #D1D1D1\n}\n", ""]);
+exports.push([module.i, "\n.chat-log .chat-message:nth-child(even){\n\tbackground-color: #D1D1D1\n}\n.empty{\n\tpadding: 1rem;\n\ttext-align: center;\n}\n\n", ""]);
 
 // exports
 
@@ -47943,6 +47941,9 @@ exports.push([module.i, "\n.chat-log .chat-message:nth-child(even){\n\tbackgroun
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
@@ -47965,12 +47966,31 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "chat-log" },
-    _vm._l(_vm.messages, function(message) {
-      return _c("chat-message", {
-        key: _vm.messages.id,
-        attrs: { message: message }
-      })
-    })
+    [
+      _vm._l(_vm.messages, function(message) {
+        return _c("chat-message", {
+          key: _vm.messages.id,
+          attrs: { message: message }
+        })
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.messages.lenght === 0,
+              expression: "messages.lenght === 0"
+            }
+          ],
+          staticClass: "empty"
+        },
+        [_vm._v("\n\t\tNothing here yet!\n\t")]
+      )
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -48089,22 +48109,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	data: function data() {
-		return {
-			messageText: ''
-		};
-	},
+  data: function data() {
+    return {
+      messageText: ''
+    };
+  },
 
-	methods: {
-		sendMessage: function sendMessage() {
-			console.log(this.messageText);
-			this.$emit('message-sent', {
-				message: this.messageText,
-				user: 'Anon'
-			});
-			this.messageText = '';
-		}
-	}
+  methods: {
+    sendMessage: function sendMessage() {
+      console.log(this.messageText);
+      this.$emit('message-sent', {
+        message: this.messageText,
+        user: {
+          //taking it straight from DOM
+          name: $('#navbarDropdown').text()
+        }
+      });
+      this.messageText = '';
+    }
+  }
 });
 
 /***/ }),
