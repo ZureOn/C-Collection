@@ -27,12 +27,16 @@ const app = new Vue({
         // username: [ ]
     },
     methods:{
-    	//add to the chat log and update the Database
+
+    	   //add to the chat log and update the Database
     	addMessage(message){
-    		//add to the chat log
+    		  //add/push to the chat log
     		this.messages.push(message);
-    		console.log('message Added') 
-    		//persist to the DB
+
+    		  //persist to the DB
+            axios.post('/messages', message).then( response => {
+                console.log('message Added')
+            })
 
     	}
 
@@ -42,7 +46,8 @@ const app = new Vue({
         axios.get('/messages').then( response => {
             console.log(response),
             this.messages = response.data } )
-        // a function to get the correct username
+        
+            // a function to get the correct username
         // axios.get('/currentuser').then (user => { 
         //     console.log(user),
         //     this.username = user},      

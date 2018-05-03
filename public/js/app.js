@@ -14322,12 +14322,16 @@ var app = new Vue({
         // username: [ ]
     },
     methods: {
+
         //add to the chat log and update the Database
         addMessage: function addMessage(message) {
-            //add to the chat log
+            //add/push to the chat log
             this.messages.push(message);
-            console.log('message Added');
+
             //persist to the DB
+            axios.post('/messages', message).then(function (response) {
+                console.log('message Added');
+            });
         }
     },
 
@@ -14337,6 +14341,7 @@ var app = new Vue({
         axios.get('/messages').then(function (response) {
             console.log(response), _this.messages = response.data;
         });
+
         // a function to get the correct username
         // axios.get('/currentuser').then (user => { 
         //     console.log(user),
