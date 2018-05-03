@@ -10,35 +10,33 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
+ 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/error', function () {
     return view('error');
-})
-	->name('error');
+}) ->name('error');
 
 Route::get('/chatapp', function () {
     return view('chatapp');
-})
-	->middleware('auth') 
-	->name('chatapp');
+}) ->middleware('auth') ->name('chatapp');
 
+//need to work on this funct()--->
 Route::get('/messages', function () {
+
     return App\Message::with('user')->get();
-})
-	->middleware('auth') 
-	->name('chatapp');
+
+}) ->middleware('auth') ->name('messages');
 
 	//route to return the username logged in
 Route::get('/currentuser', function () {
+
 	$user = auth::user();
     return $user['name'];
-});
-	
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')
-	->name('home');
+});
+
+Route::get('/home', 'HomeController@index') ->name('home');
