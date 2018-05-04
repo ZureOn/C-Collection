@@ -27,7 +27,7 @@
           <div class="card-body">
             <h5 class="card-title">Chat and Chill</h5>
             <p class="card-text">Communicate and Interact with other members</p>
-            <a href="{{ route('chatapp') }}" class="btn btn-primary">check out chatApp</a>
+            <a href="{{ route('chatapp') }}" class="btn btn-outline-warning coolbtn">check out chatApp</a>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <div class="card-body">
             <h5 class="card-title">Browse Some Images</h5>
             <p class="card-text">you might find you next wallpaper here!</p>
-            <a href="{{ route('error') }}" class="btn btn-primary">Go somewhere</a>
+            <a href="{{ route('error') }}" class="btn btn-outline-warning coolbtn">Go somewhere</a>
           </div>
         </div>
       </div>

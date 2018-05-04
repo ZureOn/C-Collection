@@ -9994,9 +9994,128 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.navbar-C-collection {
+  background-color: #474747;
+  -webkit-box-shadow: 0 2px 2px #0083B3;
+          box-shadow: 0 2px 2px #0083B3;
+  color: #fff200;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff200;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #B4FF00;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus {
+  color: #B4FF00;
+}
+
+.navbar-dark .navbar-brand {
+  color: #fff200;
+}
+
+.navbar-dark .navbar-brand:hover {
+  color: #B4FF00;
+}
+
+html,
+body {
+  background-color: #333333;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  height: 100vh;
+  margin: 0;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 84px;
+}
+
+.links > a {
+  color: #fff200;
+  padding: 0 25px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.m-b-md {
+  margin-bottom: 30px;
+}
+
+.card {
+  border-color: #474747;
+  -webkit-box-shadow: 0 2px 2px #0083B3;
+          box-shadow: 0 2px 2px #0083B3;
+}
+
+.card-header {
+  background-color: #474747;
+  color: #fff200;
+}
+
+.card-body {
+  background-color: #333333;
+  color: #fff200;
+}
+
+.coolbtn {
+  border-color: #fff200;
+  color: #fff200;
+}
+
+.coolbtn:hover {
+  border-color: none;
+  background-color: #fff200;
+  color: none;
+}
+
+.coolbtn:focus {
+  border-color: none;
+  background-color: #fff200;
+  color: none;
+}
+
+.coolbtn-link {
+  color: #984B4B;
+}
+
+.coolbtn-link:hover {
+  color: #CB0202;
 }
 
