@@ -4,17 +4,23 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ config('app.name', 'C-Collection') }}</title>
 
         <title>Laravel</title>
 
         <!-- Fonts -->
         {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> --}}
-
+        
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #333333;
+                color: #00a8e5;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -50,7 +56,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff200;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -79,15 +85,19 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome 
+                    {{-- Welcome  --}}
+                    <div class="container">
+                       <img class="img-fluid" src="img/C-collogo.png" alt="logo"> 
+                    </div>
+                    
                 </div>
 
                 <div class="links">
                     <a href="{{ route('chatapp') }}">ChatApp</a>
                     <a href="">placeholder</a>
+                    {{-- <a href="">placeholder</a>
                     <a href="">placeholder</a>
-                    <a href="">placeholder</a>
-                    <a href="">placeholder</a>
+                    <a href="">placeholder</a> --}}
                 </div>
             </div>
         </div>
